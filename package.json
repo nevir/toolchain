@@ -1,5 +1,6 @@
 {
   "name": "@nevir/toolchain",
+  "version": "0.1.0",
   "scripts": {
     ":run-all": "npm-run-all2 --print-name",
     "fix": "yarn :run-all \"fix-*\"",
