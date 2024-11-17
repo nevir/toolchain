@@ -1,3 +1,5 @@
+# Yarn
+node_modules/
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -5,9 +7,11 @@
 !.yarn/sdks
 !.yarn/versions
 
-# Swap the comments on the following lines if you wish to use zero-installs
-# In that case, don't forget to run `yarn config set enableGlobalCache false`!
-# Documentation here: https://yarnpkg.com/features/caching#zero-installs
+# Parcel
+.parcel-cache/
+/main.js
 
-#!.yarn/cache
-.pnp.*
+# Obsidian
+/main.js
+/data.json
+/styles.css

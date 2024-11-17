@@ -1,4 +1,17 @@
 {
-  "name": "toolchain",
-  "packageManager": "yarn@4.5.1"
+  "name": "@nevir/toolchain",
+  "scripts": {
+    ":run-all": "npm-run-all2 --print-name",
+    "fix": "yarn :run-all \"fix-*\"",
+    "fix-diagnostics": "biome lint --write .",
+    "fix-style": "biome check --linter-enabled=false --write .",
+    "test": "yarn :run-all \"test-*\"",
+    "test-diagnostics": "biome lint .",
+    "test-style": "biome check --linter-enabled=false ."
+  },
+  "packageManager": "yarn@4.5.1",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "npm-run-all2": "^7.0.1"
+  }
 }
