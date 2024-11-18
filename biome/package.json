@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "fix-diagnostics": "biome lint --write .",
+    "fix-style": "biome check --linter-enabled=false --write .",
+    "test-diagnostics": "biome lint .",
+    "test-style": "biome check --linter-enabled=false ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4"
+  }
+}

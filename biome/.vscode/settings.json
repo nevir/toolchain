@@ -1,0 +1,22 @@
+{
+  // Formatting
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+
+  // Editing
+  "editor.rulers": [80, 120],
+
+  // JSON
+  "json.schemas": [
+    {
+      "fileMatch": ["{,**/}biome.jsonc"],
+      "url": "/node_modules/@biomejs/biome/configuration_schema.json",
+    },
+  ],
+}
