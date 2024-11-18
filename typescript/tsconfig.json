@@ -1,0 +1,3 @@
+{
+  "extends": "@nevir/config/typescript",
+}

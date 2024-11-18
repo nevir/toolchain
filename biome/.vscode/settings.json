@@ -12,6 +12,11 @@
   // Editing
   "editor.rulers": [80, 120],
 
+  // Workspace
+  "files.exclude": {
+    "biome.json*": true
+  },
+
   // JSON
   "json.schemas": [
     {

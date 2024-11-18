@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "install",
+      "detail": "yarn install",
+
+      "type": "npm",
+      "script": "install",
+      "runOptions": {
+        "runOn": "folderOpen",
+      },
+
+      "presentation": {
+        "clear": true,
+        "close": true,
+        "echo": true,
+        "focus": false,
+        "group": "dev",
+        "panel": "dedicated",
+        "reveal": "always",
+        "showReuseMessage": false,
+      },
+      "icon": {
+        "id": "circuit-board",
+        "color": "terminal.ansiGreen",
+      },
+    },
+  ],
+}

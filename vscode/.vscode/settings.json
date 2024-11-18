@@ -1,0 +1,8 @@
+{
+  // Workspace
+  "files.exclude": {
+    "**/.*": true,
+    "**/*.lock": true,
+    "*config.*": true
+  },
+}
