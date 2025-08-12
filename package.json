@@ -1,11 +1,15 @@
 {
-  "name": "@nevir/toolchain",
-  "type": "module",
-  "exports": {
-    "./biome": "./biome/config.jsonc"
-  },
-  "packageManager": "yarn@4.9.2",
-  "devDependencies": {
-    "@biomejs/biome": "~2.1.4"
-  }
+	"name": "@nevir/toolchain",
+	"repository": "https://github.com/nevir/toolchain",
+	"version": "0.2.0",
+	"description": "Shared configuration for developer tools that @nevir commonly uses.",
+
+	"type": "module",
+	"exports": {
+		"./biome": "./biome/config.jsonc"
+	},
+	"packageManager": "yarn@4.9.2",
+	"devDependencies": {
+		"@biomejs/biome": "~2.1.4"
+	}
 }
