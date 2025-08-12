@@ -1,15 +1,24 @@
 {
-	"name": "@nevir/toolchain",
-	"repository": "https://github.com/nevir/toolchain",
-	"version": "0.2.0",
-	"description": "Shared configuration for developer tools that @nevir commonly uses.",
-
-	"type": "module",
-	"exports": {
-		"./biome": "./biome/config.jsonc"
-	},
-	"packageManager": "yarn@4.9.2",
-	"devDependencies": {
-		"@biomejs/biome": "~2.1.4"
-	}
+  "name": "@nevir/toolchain",
+  "repository": "https://github.com/nevir/toolchain",
+  "version": "0.2.0",
+  "description": "Shared configuration for developer tools that @nevir commonly uses.",
+  "type": "module",
+  "exports": {
+    "./biome": "./biome/config.jsonc"
+  },
+  "scripts": {
+    ":run-all": "npm-run-all2 --print-name",
+    "fix": "yarn :run-all \"fix-*\"",
+    "fix-diagnostics": "biome lint --write .",
+    "fix-style": "biome check --linter-enabled=false --write .",
+    "test": "yarn :run-all \"test-*\"",
+    "test-diagnostics": "biome lint .",
+    "test-style": "biome check --linter-enabled=false ."
+  },
+  "packageManager": "yarn@4.9.2",
+  "devDependencies": {
+    "@biomejs/biome": "~2.1.4",
+    "npm-run-all2": "^8.0.4"
+  }
 }
