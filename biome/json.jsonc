@@ -1,0 +1,43 @@
+{
+  // https://biomejs.dev/linter/json/rules/
+  "linter": {
+    "rules": {
+      // https://biomejs.dev/linter/json/rules/#suspicious
+      "suspicious": {
+        // Duplicate keys cause the later one to silently override the first.
+        "noDuplicateObjectKeys": "error"
+      }
+    }
+  },
+
+  "overrides": [
+    // https://biomejs.dev/assist/json/actions/
+    {
+      "includes": ["**/*.json*"],
+      "assist": {
+        "actions": {
+          // https://biomejs.dev/assist/json/actions/#source
+          "source": {
+            // Key sorting can improve readability but may conflict with
+            // logical grouping or API response order.
+            "useSortedKeys": "off"
+          }
+        }
+      }
+    },
+
+    // VS Code's configuration files are JSONC with trailing commas.
+    {
+      "includes": [".vscode/**"],
+      "json": {
+        "parser": {
+          "allowComments": true,
+          "allowTrailingCommas": true
+        },
+        "formatter": {
+          "trailingCommas": "all"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  // https://biomejs.dev/linter/graphql/rules/
+  "linter": {
+    "rules": {
+      // https://biomejs.dev/linter/graphql/rules/#style
+      "style": {
+        // When deprecating something, explain why and what to use instead.
+        "useDeprecatedReason": "error"
+      },
+
+      // https://biomejs.dev/linter/graphql/rules/#suspicious
+      "suspicious": {
+        // Duplicate fields in GraphQL queries are redundant and confusing.
+        "noDuplicateFields": "error"
+      }
+    }
+  }
+}

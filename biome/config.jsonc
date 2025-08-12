@@ -1,1 +1,33 @@
-{}
+// https://biomejs.dev/reference/configuration/
+{
+  "extends": [
+    "./css.jsonc",
+    "./graphql.jsonc",
+    "./javascript.jsonc",
+    "./json.jsonc"
+  ],
+
+  // https://biomejs.dev/reference/configuration/#files
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+
+  // https://biomejs.dev/reference/configuration/#linter
+  "linter": {
+    "rules": {
+      // Forces us to be explicit when upgrading Biome.
+      "recommended": false
+    }
+  },
+
+  // https://biomejs.dev/reference/configuration/#formatter
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  }
+}

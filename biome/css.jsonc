@@ -1,0 +1,108 @@
+{
+  // https://biomejs.dev/linter/css/rules/
+  "linter": {
+    "rules": {
+      // https://biomejs.dev/linter/css/rules/#a11y
+      "a11y": {
+        // Generic font families ensure text renders even if custom fonts fail.
+        "useGenericFontNames": "error"
+      },
+
+      // https://biomejs.dev/linter/css/rules/#correctness
+      "correctness": {
+        // Invalid gradient directions cause unexpected visual results.
+        "noInvalidDirectionInLinearGradient": "error",
+
+        // Invalid grid areas cause layout failures.
+        "noInvalidGridAreas": "error",
+
+        // @import rules after other rules are ignored by browsers.
+        "noInvalidPositionAtImportRule": "error",
+
+        // CSS variables without var() are treated as literal strings.
+        "noMissingVarFunction": "error",
+
+        // Unknown CSS functions cause property values to be ignored.
+        "noUnknownFunction": "error",
+
+        // Unknown media features cause media queries to fail.
+        "noUnknownMediaFeatureName": "error",
+
+        // Unknown CSS properties are ignored by browsers.
+        "noUnknownProperty": "error",
+
+        // Unknown pseudo-classes cause selectors to fail.
+        "noUnknownPseudoClass": "error",
+
+        // Unknown pseudo-elements cause selectors to fail.
+        "noUnknownPseudoElement": "error",
+
+        // Unknown element selectors never match anything.
+        "noUnknownTypeSelector": "error",
+
+        // Unknown CSS units cause property values to be ignored.
+        "noUnknownUnit": "error",
+
+        // Invalid :nth-child() selectors never match anything.
+        "noUnmatchableAnbSelector": "error"
+      },
+
+      // https://biomejs.dev/linter/css/rules/#style
+      "style": {
+        // Descending specificity often indicates CSS architecture problems,
+        // but this rule produces too many false positives in practice.
+        "noDescendingSpecificity": "error",
+
+        // @-rules should only be used in appropriate contexts.
+        "noValueAtRule": "error"
+      },
+
+      // https://biomejs.dev/linter/css/rules/#suspicious
+      "suspicious": {
+        // Duplicate @import rules are redundant and waste bandwidth.
+        "noDuplicateAtImportRules": "error",
+
+        // Duplicate custom properties create ambiguous value resolution.
+        "noDuplicateCustomProperties": "error",
+
+        // Duplicate font names in font-family are redundant.
+        "noDuplicateFontNames": "error",
+
+        // Duplicate properties create confusing override behavior.
+        "noDuplicateProperties": "error",
+
+        // Duplicate selectors in keyframes create ambiguous animations.
+        "noDuplicateSelectorsKeyframeBlock": "error",
+
+        // Empty CSS blocks add no styling and clutter the stylesheet.
+        "noEmptyBlock": "error",
+
+        // !important in keyframes can cause unpredictable animation behavior.
+        "noImportantInKeyframe": "error",
+
+        // Irregular whitespace characters cause invisible parsing errors.
+        "noIrregularWhitespace": "error",
+
+        // Shorthand properties after longhand create confusing override patterns.
+        "noShorthandPropertyOverrides": "error"
+      }
+    }
+  },
+
+  "overrides": [
+    {
+      "includes": ["**/*.css"],
+      "assist": {
+        // https://biomejs.dev/assist/css/actions/
+        "actions": {
+          // https://biomejs.dev/assist/css/actions/#source
+          "source": {
+            // Property sorting can improve readability but may conflict with
+            // intentional grouping by functionality.
+            "useSortedProperties": "off"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,878 @@
+{
+  // https://biomejs.dev/reference/configuration/#javascript
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "jsxQuoteStyle": "single",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "asNeeded",
+      "bracketSameLine": false
+    }
+  },
+
+  // https://biomejs.dev/linter/javascript/rules/
+  "linter": {
+    "rules": {
+      // https://biomejs.dev/linter/javascript/rules/#a11y
+      "a11y": {
+        // The accesskey attribute is inconsistently implemented across
+        // browsers, and tends to more harm than good by conflicting with screen
+        // readers.
+        //
+        // https://webaim.org/techniques/keyboard/accesskey#poor
+        "noAccessKey": "error",
+
+        // If an element is focusable, we shouldn't be hiding it.
+        "noAriaHiddenOnFocusable": "error",
+
+        // Can confuse screen readers.
+        "noAriaUnsupportedElements": "error",
+
+        // While this can be problematic for screen readers, it is also
+        // something that we find useful in certain scenarios.
+        "noAutofocus": "off",
+
+        // Disallow distracting elements that can cause accessibility issues.
+        "noDistractingElements": "error",
+
+        // Avoid misuse of the scope attribute.
+        "noHeaderScope": "error",
+
+        // That wouldn't make sense, now would it?
+        "noInteractiveElementToNoninteractiveRole": "error",
+
+        // Enforce that we associate labels with their controls.
+        "noLabelWithoutControl": "error",
+
+        // We should be using the correct element for the job.
+        //
+        // Though, this rule may prove to be too restrictive?
+        "noNoninteractiveElementToInteractiveRole": "error",
+
+        // Screen readers can navigate non-interactive things just fine; you
+        // don't need to assist 'em.
+        "noNoninteractiveTabindex": "error",
+
+        // Deviating from the content order gets really confusing really fast
+        // for screen reader users.
+        "noPositiveTabindex": "error",
+
+        // If you're going to specify alt text, make sure it's meaningful.
+        "noRedundantAlt": "error",
+
+        // Avoid re-stating an element's default role.
+        "noRedundantRoles": "error",
+
+        // Interactive handlers on non-interactive elements can confuse users
+        // about what is clickable, and are inaccessible to keyboard users.
+        "noStaticElementInteractions": "error",
+
+        // SVGs without titles are invisible to screen readers.
+        "noSvgWithoutTitle": "error",
+
+        // Images without alt text are inaccessible to screen readers.
+        "useAltText": "error",
+
+        // Links without accessible content can't be understood by screen
+        // readers.
+        "useAnchorContent": "error",
+
+        // aria-activedescendant only works on focusable elements.
+        "useAriaActivedescendantWithTabindex": "error",
+
+        // Using inappropriate ARIA props can confuse screen readers.
+        "useAriaPropsForRole": "error",
+
+        // Unsupported ARIA props are ignored and provide no value.
+        "useAriaPropsSupportedByRole": "error",
+
+        // Buttons without explicit type default to 'submit' which can cause
+        // unexpected form submissions.
+        "useButtonType": "error",
+
+        // Focusable non-interactive elements confuse keyboard users about
+        // what they can actually interact with.
+        "useFocusableInteractive": "error",
+
+        // Empty headings provide no semantic value for screen readers.
+        "useHeadingContent": "error",
+
+        // Screen readers need to know the page language to pronounce content
+        // correctly.
+        "useHtmlLang": "error",
+
+        // Screen readers announce iframe titles to help users understand
+        // embedded content.
+        "useIframeTitle": "error",
+
+        // Click-only handlers exclude keyboard users from functionality.
+        "useKeyWithClickEvents": "error",
+
+        // Mouse-only handlers exclude keyboard users from functionality.
+        "useKeyWithMouseEvents": "error",
+
+        // Media without captions is inaccessible to deaf and hard-of-hearing
+        // users.
+        "useMediaCaption": "error",
+
+        // Semantic elements provide meaningful structure for screen readers.
+        "useSemanticElements": "error",
+
+        // Invalid anchors can't be navigated properly by screen readers.
+        "useValidAnchor": "error",
+
+        // Invalid ARIA props are ignored by screen readers, providing no
+        // benefit.
+        "useValidAriaProps": "error",
+
+        // Invalid ARIA roles are ignored by screen readers, providing no
+        // benefit.
+        "useValidAriaRole": "error",
+
+        // Invalid ARIA values are ignored by screen readers, providing no
+        // benefit.
+        "useValidAriaValues": "error",
+
+        // Invalid autocomplete attributes provide no auto-fill assistance.
+        "useValidAutocomplete": "error",
+
+        // Invalid lang attributes prevent screen readers from pronouncing
+        // content correctly.
+        "useValidLang": "error"
+      },
+
+      // https://biomejs.dev/linter/javascript/rules/#complexity
+      "complexity": {
+        // Adjacent spaces in regex character classes are usually unintentional.
+        "noAdjacentSpacesInRegex": "error",
+
+        // The arguments object is deprecated and has confusing behavior;
+        // rest parameters are clearer.
+        "noArguments": "error",
+
+        // Prevents usage of problematic or deprecated TypeScript types.
+        "noBannedTypes": "error",
+
+        // The comma operator is often used by mistake and reduces readability.
+        "noCommaOperator": "error",
+
+        // Empty type parameters provide no type information and are
+        // meaningless.
+        "noEmptyTypeParameters": "error",
+
+        // While this is nice in theory, it is difficult to find a pragmatic
+        // threshold in practice.
+        "noExcessiveCognitiveComplexity": "off",
+
+        // While this is nice in theory, it is difficult to find a pragmatic
+        // threshold in practice.
+        "noExcessiveNestedTestSuites": "off",
+
+        // Explicit boolean casting in boolean contexts is redundant.
+        "noExtraBooleanCast": "error",
+
+        // flatMap with identity function is just a needlessly confusing
+        // flatten.
+        "noFlatMapIdentity": "error",
+
+        // for-of loops are generally more readable and performant than forEach.
+        "noForEach": "error",
+
+        // Classes with only static members should be namespaces or modules
+        // instead.
+        "noStaticOnlyClass": "error",
+
+        // It can be useful to reference the class from a static method,
+        // especially to avoid refactoring errors in the future.
+        "noThisInStatic": "off",
+
+        // Catch clauses that just rethrow add no value and hide stack traces.
+        "noUselessCatch": "error",
+
+        // Empty constructors add no value and clutter the code.
+        "noUselessConstructor": "error",
+
+        // continue statements at the end of loops are redundant.
+        "noUselessContinue": "error",
+
+        // Empty exports add no value and can confuse module systems.
+        "noUselessEmptyExport": "error",
+
+        // Unnecessary escapes in regex reduce readability.
+        "noUselessEscapeInRegex": "error",
+
+        // Fragments with single children add no value and clutter JSX.
+        "noUselessFragments": "error",
+
+        // Labels that aren't used for control flow add no value.
+        "noUselessLabel": "error",
+
+        // Lone block statements that don't create scope are confusing.
+        "noUselessLoneBlockStatements": "error",
+
+        // Renaming to the same name adds no value and creates confusion.
+        "noUselessRename": "error",
+
+        // Concatenating literal strings should be done at write time, not
+        // runtime.
+        "noUselessStringConcat": "error",
+
+        // String.raw with no template expressions is just a verbose string
+        // literal.
+        "noUselessStringRaw": "error",
+
+        // Switch cases that can't be reached are likely mistakes.
+        "noUselessSwitchCase": "error",
+
+        // Ternary operators that always return the same value are confusing.
+        "noUselessTernary": "error",
+
+        // this aliases in arrow functions are unnecessary and confusing.
+        "noUselessThisAlias": "error",
+
+        // Type constraints that don't actually constrain add no value.
+        "noUselessTypeConstraint": "error",
+
+        // Explicit undefined initialization is redundant as variables are undefined by default.
+        "noUselessUndefinedInitialization": "error",
+
+        // void operator in expression statements has no effect and is confusing.
+        "noVoid": "error",
+
+        // Arrow functions are more concise and have clearer this binding.
+        "useArrowFunction": "error",
+
+        // Date.now() is more efficient than new Date().getTime().
+        "useDateNow": "error",
+
+        // flatMap is more efficient than map().flat() chains.
+        "useFlatMap": "error",
+
+        // Conflicts with TypeScript's noPropertyAccessFromIndexSignature.
+        //
+        // We like to be explicit when we're referencing known properties vs
+        // indexing into a container.
+        "useLiteralKeys": "off",
+
+        // Numeric literals are clearer than parseInt() for known numeric values.
+        "useNumericLiterals": "error",
+
+        // Optional chaining is safer and more concise than manual null checks.
+        "useOptionalChain": "error",
+
+        // Regex literals are more efficient than RegExp constructor for static patterns.
+        "useRegexLiterals": "error",
+
+        // Simple numeric keys are clearer than string keys for arrays.
+        "useSimpleNumberKeys": "error",
+
+        // Simplified logic expressions improve readability and performance.
+        "useSimplifiedLogicExpression": "error",
+
+        // while loops are clearer than for loops when not using the counter.
+        "useWhile": "error"
+      },
+
+      // https://biomejs.dev/linter/javascript/rules/#correctness
+      "correctness": {
+        // children should be passed as JSX content, not props.
+        "noChildrenProp": "error",
+
+        // Already handled by TypeScript.
+        "noConstAssign": "off",
+
+        // Constant conditions usually indicate a logic error.
+        "noConstantCondition": "error",
+
+        // Math functions with constant args can be replaced with the result.
+        "noConstantMathMinMaxClamp": "error",
+
+        // Returning from constructors can lead to confusing behavior.
+        "noConstructorReturn": "error",
+
+        // Empty character classes in regex never match anything.
+        "noEmptyCharacterClassInRegex": "error",
+
+        // Empty destructuring patterns serve no purpose.
+        "noEmptyPattern": "error",
+
+        // Already handled by TypeScript.
+        "noGlobalObjectCalls": "off",
+
+        // Already handled by TypeScript.
+        "noInnerDeclarations": "off",
+
+        // Built-ins like Symbol() require new, Math() doesn't support it.
+        "noInvalidBuiltinInstantiation": "error",
+
+        // super() must be called correctly to avoid runtime errors.
+        "noInvalidConstructorSuper": "error",
+
+        // Already handled by TypeScript.
+        "noInvalidUseBeforeDeclaration": "off",
+
+        // Project-specific.
+        "noNodejsModules": "off",
+
+        // Already handled by TypeScript.
+        "noNonoctalDecimalEscape": "off",
+
+        // Number literals that lose precision are likely bugs.
+        "noPrecisionLoss": "error",
+
+        // Project-specific.
+        "noPrivateImports": "off",
+
+        // Handled by react-dom's typings.
+        "noRenderReturnValue": "off",
+
+        // Self assignment (x = x) is always a mistake.
+        "noSelfAssign": "error",
+
+        // Already handled by TypeScript.
+        "noSetterReturn": "off",
+
+        // String case mismatches are usually typos.
+        "noStringCaseMismatch": "error",
+
+        // Already handled by TypeScript.
+        "noSwitchDeclarations": "off",
+
+        // Using undeclared dependencies can cause runtime errors.
+        "noUndeclaredDependencies": "error",
+
+        // Already handled by TypeScript.
+        "noUndeclaredVariables": "off",
+
+        // Already handled by TypeScript.
+        "noUnreachable": "off",
+
+        // Already handled by TypeScript.
+        "noUnreachableSuper": "off",
+
+        // finally blocks should not contain control flow statements.
+        "noUnsafeFinally": "error",
+
+        // Optional chaining on non-objects can cause runtime errors.
+        "noUnsafeOptionalChaining": "error",
+
+        // Already handled by TypeScript.
+        "noUnusedFunctionParameters": "off",
+
+        // Unused imports clutter code and slow builds.
+        "noUnusedImports": "error",
+
+        // Unused labels are dead code that confuses readers.
+        "noUnusedLabels": "error",
+
+        // Already handled by TypeScript.
+        "noUnusedPrivateClassMembers": "off",
+
+        // Already handled by TypeScript.
+        "noUnusedVariables": "off",
+
+        // Void elements (like img, br) cannot have children.
+        "noVoidElementsWithChildren": "error",
+
+        // Functions with void return type shouldn't return values.
+        "noVoidTypeReturn": "error",
+
+        // Missing dependencies cause stale closures and bugs.
+        "useExhaustiveDependencies": "error",
+
+        // Hooks in conditionals/loops break the rules of hooks.
+        "useHookAtTopLevel": "error",
+
+        // Project-specific.
+        "useImportExtensions": "off",
+
+        // Already handled by TypeScript.
+        "useIsNan": "off",
+
+        // Missing keys cause React rendering bugs.
+        "useJsxKeyInIterable": "error",
+
+        // Invalid for loop direction causes infinite loops.
+        "useValidForDirection": "error",
+
+        // Already handled by TypeScript.
+        "useValidTypeof": "off",
+
+        // Generator functions without yield are just regular functions.
+        "useYield": "error"
+      },
+
+      // https://biomejs.dev/linter/javascript/rules/#performance
+      "performance": {
+        // Spreading in loops creates O(n²) performance.
+        "noAccumulatingSpread": "error",
+
+        // There are cases where we want this for improved ergonomics,
+        // especially in libraries.
+        "noBarrelFile": "off",
+
+        // delete changes object shape and hurts V8 optimization.
+        "noDelete": "error",
+
+        // Dynamic namespace access prevents tree-shaking.
+        "noDynamicNamespaceImportAccess": "error",
+
+        // Next.js Image component provides better performance.
+        "noImgElement": "error",
+
+        // Can be helpful for readability and dynamic referencing.
+        "noNamespaceImport": "off",
+
+        // Re-export all prevents tree-shaking.
+        "noReExportAll": "error",
+
+        // This is nice in theory, but in practice there are cases where we want
+        // to have inline regexes to improve import performance or readability.
+        "useTopLevelRegex": "off"
+      },
+
+      // https://biomejs.dev/linter/javascript/rules/#security
+      "security": {
+        // target="_blank" without rel="noreferrer" leaks window.opener.
+        "noBlankTarget": "error",
+
+        // dangerouslySetInnerHTML enables XSS attacks.
+        "noDangerouslySetInnerHtml": "error",
+
+        // Superseded by noDangerouslySetInnerHtml.
+        "noDangerouslySetInnerHtmlWithChildren": "off",
+
+        // eval() enables code injection attacks.
+        "noGlobalEval": "error"
+      },
+
+      // https://biomejs.dev/linter/javascript/rules/#style
+      "style": {
+        // CommonJS prevents tree-shaking and static analysis benefits.
+        "noCommonJs": "error",
+
+        // While we agree with default exports being awkward in IDEs, there
+        // are cases where default exports are the ergonomic choice for an API,
+        // and editors are getting better at handling them.
+        "noDefaultExport": "off",
+
+        // Promise-based test patterns are clearer than callback-based ones.
+        "noDoneCallback": "error",
+
+        // TypeScript union types are more flexible than enum declarations.
+        "noEnum": "error",
+
+        // Re-exporting creates unnecessary indirection and hurts tree-shaking.
+        "noExportedImports": "error",
+
+        // Head elements should only appear in document root, not components.
+        "noHeadElement": "error",
+
+        // We prefer implicit booleans.
+        "noImplicitBoolean": "off",
+
+        // Explicit types that TypeScript can infer add no value.
+        "noInferrableTypes": "error",
+
+        // Namespaces can be helpful for some organization strategies.
+        "noNamespace": "off",
+
+        // Positive conditions are generally more readable than negated else.
+        "noNegationElse": "error",
+
+        // Nested ternary operators reduce readability significantly.
+        "noNestedTernary": "error",
+
+        // Pragmatically, there are cases where we can safely assume that a
+        // value or property exists, and a non-null assertion leads to the
+        // most readable code.
+        "noNonNullAssertion": "off",
+
+        // Parameter assignment can be helpful for things like complex
+        // defaults.
+        "noParameterAssign": "off",
+
+        // Parameter properties are a helpful shorthand.
+        "noParameterProperties": "off",
+
+        // Environment variables should be managed through configuration
+        // systems.
+        "noProcessEnv": "error",
+
+        // We prefer to manage this via TypeScript types.
+        "noRestrictedGlobals": "off",
+
+        // Import restrictions enforce architectural boundaries.
+        "noRestrictedImports": "error",
+
+        // Type restrictions prevent usage of problematic or deprecated types.
+        "noRestrictedTypes": "error",
+
+        // SCREAMING_SNAKE_CASE constants reduce readability in modern
+        // codebases.
+        "noShoutyConstants": "error",
+
+        // substr() is deprecated and has confusing negative-index behavior.
+        "noSubstr": "error",
+
+        // We like to use template literals to indicate human-visible text.
+        "noUnusedTemplateLiteral": "off",
+
+        // Unnecessary else clauses reduce readability with early returns.
+        "noUselessElse": "error",
+
+        // Natural order comparisons (value === constant) are more readable.
+        "noYodaExpression": "error",
+
+        // Array literals are more readable than new Array() constructor.
+        "useArrayLiterals": "error",
+
+        // 'as const' provides better type inference than explicit types.
+        "useAsConstAssertion": "error",
+
+        // at() method handles negative indices safely unlike bracket notation.
+        "useAtIndex": "error",
+
+        // We commonly prefer to use blockless statements for early returns
+        // (flat functions).
+        "useBlockStatements": "off",
+
+        // Sometimes nested conditionals are helpful to explain consistent
+        // structures.
+        "useCollapsedElseIf": "off",
+
+        // Collapsed if statements reduce unnecessary nesting.
+        "useCollapsedIf": "error",
+
+        // Single-component modules improve tree-shaking and file organization.
+        "useComponentExportOnlyModules": "error",
+
+        // Prefer shorthand[] array types.
+        "useConsistentArrayType": {
+          "level": "error",
+          "options": {
+            "syntax": "shorthand"
+          }
+        },
+
+        // Consistent instantiation patterns reduce cognitive load.
+        "useConsistentBuiltinInstantiation": "error",
+
+        // Consistent JSX brace usage reduces cognitive load when reading code.
+        "useConsistentCurlyBraces": "error",
+
+        // Explicit accessibility modifiers make class APIs clearer.
+        "useConsistentMemberAccessibility": "error",
+
+        // const declarations prevent accidental reassignment.
+        "useConst": "error",
+
+        // Default parameters last prevents confusing function call patterns.
+        "useDefaultParameterLast": "error",
+
+        // Already handled by TypeScript.
+        "useDefaultSwitchClause": "off",
+
+        // Explicit enum values prevent fragile auto-increment dependencies.
+        "useEnumInitializers": "error",
+
+        // Is nice in theory, but is hard to enfoce consistently without type
+        // inference.
+        "useExplicitLengthCheck": "off",
+
+        // Exponentiation operator (**) is clearer than Math.pow().
+        "useExponentiationOperator": "error",
+
+        // Type-only exports improve tree-shaking and build performance.
+        "useExportType": "error",
+
+        // Doesn't have enough control to express the rules we want (yet).
+        "useFilenamingConvention": "off",
+
+        // for-of loops are more readable and avoid index-based errors.
+        "useForOf": "error",
+
+        // Fragment syntax avoids unnecessary DOM wrapper elements.
+        "useFragmentSyntax": "error",
+
+        // Type-only imports improve tree-shaking and build performance.
+        "useImportType": "error",
+
+        // Literal enum values are more predictable than computed ones.
+        "useLiteralEnumMembers": "error",
+
+        // Consistent naming improves code readability and maintainability.
+        "useNamingConvention": "error",
+
+        // Strict assertions provide better error messages and type safety.
+        "useNodeAssertStrict": "error",
+
+        // node: import protocol makes Node.js imports explicit.
+        "useNodejsImportProtocol": "error",
+
+        // Number namespace methods are clearer than global parsing functions.
+        "useNumberNamespace": "error",
+
+        // Self-closing tags reduce visual noise and prevent closing tag errors.
+        "useSelfClosingElements": "error",
+
+        // Shorthand operators (+=, -=) are more concise and intentional.
+        "useShorthandAssign": "error",
+
+        // Shorthand function types are more concise than object types.
+        "useShorthandFunctionType": "error",
+
+        // Single declarations improve readability and debugging experience.
+        "useSingleVarDeclarator": "error",
+
+        // Template literals are more readable than string concatenation.
+        "useTemplate": "error",
+
+        // Already covered by useConsistentBuiltinInstantiation
+        "useThrowNewError": "off",
+
+        // Error objects provide stack traces and proper error handling.
+        "useThrowOnlyError": "error",
+
+        // trimStart/trimEnd are more explicit than deprecated left/right
+        // aliases.
+        "useTrimStartEnd": "error"
+      },
+
+      // https://biomejs.dev/linter/javascript/rules/#suspicious
+      "suspicious": {
+        // alert() blocks the UI thread and provides poor user experience.
+        "noAlert": "error",
+
+        // Approximative constants like Math.PI/2 lose precision and clarity.
+        "noApproximativeNumericConstant": "error",
+
+        // Sometimes we want elements that will always be in the same order.
+        "noArrayIndexKey": "off",
+
+        // Assignment in expressions is easily confused with equality checks.
+        "noAssignInExpressions": "error",
+
+        // Async executors make Promise error handling unpredictable.
+        "noAsyncPromiseExecutor": "error",
+
+        // Modifying catch parameters makes error handling harder to debug.
+        "noCatchAssign": "error",
+
+        // Already handled by TypeScript.
+        "noClassAssign": "off",
+
+        // HTML comments in JSX aren't rendered and indicate mistakes.
+        "noCommentText": "error",
+
+        // Negative zero comparisons (-0 === 0) behave unexpectedly.
+        "noCompareNegZero": "error",
+
+        // Labels with the same name as variables create scope confusion.
+        "noConfusingLabels": "error",
+
+        // void in union types (string | void) is unclear compared to undefined.
+        "noConfusingVoidType": "error",
+
+        // Project-dependent.
+        "noConsole": "off",
+
+        // const enums have surprising compilation behavior and poor
+        // tree-shaking.
+        "noConstEnum": "error",
+
+        // Control characters in regex are usually copy-paste errors.
+        "noControlCharactersInRegex": "error",
+
+        // debugger statements should be removed from production code.
+        "noDebugger": "error",
+
+        // Direct cookie access bypasses security and privacy controls.
+        "noDocumentCookie": "error",
+
+        // == and != operators have confusing type coercion behavior.
+        "noDoubleEquals": "error",
+
+        // Duplicate cases make switch statements unreachable and confusing.
+        "noDuplicateCase": "error",
+
+        // Already handled by TypeScript.
+        "noDuplicateClassMembers": "off",
+
+        // Duplicate conditions make else-if chains unreachable and confusing.
+        "noDuplicateElseIf": "error",
+
+        // Already handled by TypeScript.
+        "noDuplicateJsxProps": "off",
+
+        // Already handled by TypeScript.
+        "noDuplicateObjectKeys": "off",
+
+        // Already handled by TypeScript.
+        "noDuplicateParameters": "off",
+
+        // Duplicate test hooks create unpredictable test execution order.
+        "noDuplicateTestHooks": "error",
+
+        // Can be helpful to have empty functions.
+        "noEmptyBlockStatements": "off",
+
+        // Can be helpful as placeholders / documentation.
+        "noEmptyInterface": "off",
+
+        // Already handled by TypeScript.
+        "noEvolvingTypes": "off",
+
+        // Sometimes we legitimately need to use `any` (though please prefer
+        // `unknown` where possible).
+        "noExplicitAny": "off",
+
+        // Test files should not export code used by production.
+        "noExportsInTest": "error",
+
+        // Multiple non-null assertions indicate unsafe type assumptions.
+        "noExtraNonNullAssertion": "error",
+
+        // Switch fallthrough is usually unintentional and causes bugs.
+        "noFallthroughSwitchClause": "error",
+
+        // Focused tests accidentally committed will skip other tests.
+        "noFocusedTests": "error",
+
+        // Already handled by TypeScript.
+        "noFunctionAssign": "off",
+
+        // Already handled by TypeScript.
+        "noGlobalAssign": "off",
+
+        // Global isFinite has confusing behavior; use Number.isFinite instead.
+        "noGlobalIsFinite": "error",
+
+        // Global isNaN has confusing behavior; use Number.isNaN instead.
+        "noGlobalIsNan": "error",
+
+        // Head imports in document can cause hydration mismatches.
+        "noHeadImportInDocument": "error",
+
+        // Implicit any on let declarations defeats TypeScript type safety.
+        "noImplicitAnyLet": "error",
+
+        // Already handled by TypeScript.
+        "noImportAssign": "off",
+
+        // Irregular whitespace characters cause invisible parsing errors.
+        "noIrregularWhitespace": "error",
+
+        // Labels sharing variable names create confusing scope interactions.
+        "noLabelVar": "error",
+
+        // Character classes like [A-z] include unexpected Unicode characters.
+        "noMisleadingCharacterClass": "error",
+
+        // Functions that look like constructors but aren't cause confusion.
+        "noMisleadingInstantiator": "error",
+
+        // Too fiddly to get right for all cases.
+        "noMisplacedAssertion": "off",
+
+        // Shorthand assignments like `a=+b` are often refactoring mistakes.
+        "noMisrefactoredShorthandAssign": "error",
+
+        // Octal escapes are deprecated and have confusing behavior.
+        "noOctalEscape": "error",
+
+        // Direct prototype method calls can break with null/undefined objects.
+        "noPrototypeBuiltins": "error",
+
+        // Already handled by TypeScript.
+        "noReactSpecificProps": "off",
+
+        // Already handled by TypeScript.
+        "noRedeclare": "off",
+
+        // 'use strict' is redundant in ES modules and strict contexts.
+        "noRedundantUseStrict": "error",
+
+        // Self comparisons (x === x) are usually logic errors or NaN checks.
+        "noSelfCompare": "error",
+
+        // Shadowing built-ins like Object or Array breaks global functionality.
+        "noShadowRestrictedNames": "error",
+
+        // Skipped tests accidentally committed will reduce test coverage.
+        "noSkippedTests": "error",
+
+        // Sparse arrays ([1,,3]) have confusing length and iteration behavior.
+        "noSparseArray": "error",
+
+        // Semicolons in JSX can accidentally terminate statements.
+        "noSuspiciousSemicolonInJsx": "error",
+
+        // Template literal syntax in strings indicates copy-paste errors.
+        "noTemplateCurlyInString": "error",
+
+        // Objects with 'then' properties break Promise.resolve() behavior.
+        "noThenProperty": "error",
+
+        // There are some fancy cases where this is helpful for API ergonomics.
+        "noUnsafeDeclarationMerging": "off",
+
+        // Negating the wrong operand (!(a in b) vs (!a) in b) causes logic
+        // errors.
+        "noUnsafeNegation": "error",
+
+        // var has confusing hoisting behavior; use let/const instead.
+        "noVar": "error",
+
+        // We are always working in strict mode, which gives a better error.
+        "noWith": "off",
+
+        // Grouping overloads together improves API readability and
+        // maintainability.
+        "useAdjacentOverloadSignatures": "error",
+
+        // Missing await on promises indicates a likely bug.
+        "useAwait": "error",
+
+        // Default clauses last make switch statement flow clearer.
+        "useDefaultSwitchClauseLast": "error",
+
+        // In some cases we want to construct messages in other ways.
+        "useErrorMessage": "off",
+
+        // Already handled by TypeScript.
+        "useGetterReturn": "off",
+
+        // Font-display prevents layout shift and improves loading performance.
+        "useGoogleFontDisplay": "error",
+
+        // for-in loops without hasOwnProperty checks iterate inherited properties.
+        "useGuardForIn": "error",
+
+        // Array.isArray() works correctly across frames and contexts.
+        "useIsArray": "error",
+
+        // 'namespace' keyword is clearer than deprecated 'module' syntax.
+        "useNamespaceKeyword": "error",
+
+        // toFixed() without digits argument has unpredictable cross-browser behavior.
+        "useNumberToFixedDigitsArgument": "error",
+
+        // Already handled by TypeScript.
+        "useStrictMode": "off"
+      }
+    }
+  },
+
+  "overrides": [
+    {
+      "includes": ["**/*.*js*", "**/*.ts*"],
+      "assist": {
+        // https://biomejs.dev/assist/javascript/actions/
+        "actions": {}
+      }
+    }
+  ]
+}
