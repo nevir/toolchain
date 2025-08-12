@@ -1,0 +1,11 @@
+{
+  "name": "@nevir/toolchain",
+  "type": "module",
+  "exports": {
+    "./biome": "./biome/config.jsonc"
+  },
+  "packageManager": "yarn@4.9.2",
+  "devDependencies": {
+    "@biomejs/biome": "~2.1.4"
+  }
+}
