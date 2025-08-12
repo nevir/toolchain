@@ -5,7 +5,32 @@ on:
     branches: [main]
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Run diagnostics tests
+        run: yarn test-diagnostics
+
+      - name: Run style tests
+        run: yarn test-style
+
   publish:
+    needs: test
     runs-on: ubuntu-latest
 
     permissions:
