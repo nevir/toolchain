@@ -1,7 +1,7 @@
 {
   "name": "@nevir/toolchain",
   "repository": "https://github.com/nevir/toolchain",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Shared configuration for developer tools that @nevir commonly uses.",
   "type": "module",
   "exports": {
