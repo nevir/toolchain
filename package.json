@@ -19,6 +19,10 @@
   "packageManager": "yarn@4.9.2",
   "devDependencies": {
     "@biomejs/biome": "~2.1.4",
+    "@nevir/toolchain": "workspace:*",
     "npm-run-all2": "^8.0.4"
+  },
+  "peerDependencies": {
+    "@biomejs/biome": "~2.1.4"
   }
 }
