@@ -1,0 +1,122 @@
+// TypeScript configuration that is common to all environments we work in.
+{
+  // https://www.typescriptlang.org/tsconfig
+  //
+  // Note that we enumerate each setting related to type checking so that we
+  // can document our rationale for each.
+  "compilerOptions": {
+    // Type Checking
+    // =============
+
+    // Help catch refactoring errors.
+    "allowUnreachableCode": false,
+
+    // Help catch refactoring errors.
+    "allowUnusedLabels": false,
+
+    // Enforce ES' strict mode at runtime
+    "alwaysStrict": true,
+
+    // Would be nice, but in practice it is too strict.
+    "exactOptionalPropertyTypes": false,
+
+    // Covered by Biome as an error.
+    "noFallthroughCasesInSwitch": false,
+
+    // Make sure that we annotate any code TypeScript cannot infer types of.
+    "noImplicitAny": true,
+
+    // Help catch refactoring errors.
+    "noImplicitOverride": true,
+
+    // Usually a programmer error.
+    "noImplicitReturns": true,
+
+    // Make sure that we annotate any code TypeScript cannot infer types of.
+    "noImplicitThis": true,
+
+    // Use different syntax between explicitly defined properties and indexed
+    // values, so it is clear to the reader.
+    "noPropertyAccessFromIndexSignature": true,
+
+    // Rather than assume that indexed values always exist; let's be explicit.
+    "noUncheckedIndexedAccess": true,
+
+    // Help catch refactoring errors.
+    "noUnusedLocals": true,
+
+    // Help catch refactoring errors.
+    "noUnusedParameters": true,
+
+    // Make sure that we opt into future strict mode features.
+    "strict": true,
+
+    // Make sure that call() and apply() are type checked.
+    "strictBindCallApply": true,
+
+    // Properly-typed iterators!
+    "strictBuiltinIteratorReturn": true,
+
+    // Catch subtle bugs around functions as arguments.
+    "strictFunctionTypes": true,
+
+    // Prevent most null-pointer exceptions.
+    "strictNullChecks": true,
+
+    // Don't assume that properties are always initialized.
+    "strictPropertyInitialization": true,
+
+    // JavaScript allows arbitary types to be thrown.
+    "useUnknownInCatchVariables": true,
+
+    // Module
+    // ======
+
+    // By default, we use TypeScript as a type checker, not a compiler.
+    //
+    // We use alternative compilers for the environments we work in (vite for
+    // web, ts-node for node, etc).
+    "module": "preserve",
+
+    // We use loaders that support importing JSON files; let's get some type
+    // safety from that, too.
+    "resolveJsonModule": true,
+
+    // Emit
+    // ====
+
+    // By default, we use TypeScript as a type checker, not a compiler.
+    //
+    // We use alternative compilers for the environments we work in (vite for
+    // web, ts-node for node, etc).
+    "noEmit": true,
+
+    // Interop Constraints
+    // ===================
+
+    // Compatibility with CommonJS modules that export a single value as the
+    // entire module (instead of a default export).
+    "allowSyntheticDefaultImports": true,
+
+    // Support other Node.js patterns (such as a function with exports hanging
+    // off of it).
+    "esModuleInterop": true,
+
+    // Make sure we don't blow up in case sensitive file systems.
+    "forceConsistentCasingInFileNames": true,
+
+    // Enforce that we do not require type information from a module's
+    // dependencies in order to properly compile it.
+    //
+    // This allows us to optimize our build times and rely on simplified
+    // compilers.
+    "isolatedModules": true,
+
+    // Project-dependent behavior.
+    "preserveSymlinks": false,
+
+    // import/export type statements are removed from output, but everything
+    // else remains. No magic import elision.
+    "verbatimModuleSyntax": true,
+  },
+}

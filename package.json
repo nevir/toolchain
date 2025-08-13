@@ -20,9 +20,13 @@
   "devDependencies": {
     "@biomejs/biome": "~2.1.4",
     "@nevir/toolchain": "workspace:*",
-    "npm-run-all2": "^8.0.4"
+    "npm-run-all2": "^8.0.4",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.2"
   },
   "peerDependencies": {
-    "@biomejs/biome": "~2.1.4"
+    "@biomejs/biome": "~2.1.4",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.2"
   }
 }

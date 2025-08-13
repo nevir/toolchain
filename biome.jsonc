@@ -1,1 +1,17 @@
-{ "extends": ["@nevir/toolchain/biome"] }
+{
+  "extends": ["@nevir/toolchain/biome"],
+  "overrides": [
+    {
+      "includes": ["typescript/**/*.json"],
+      "json": {
+        "parser": {
+          "allowComments": true,
+          "allowTrailingCommas": true
+        },
+        "formatter": {
+          "trailingCommas": "all"
+        }
+      }
+    }
+  ]
+}
