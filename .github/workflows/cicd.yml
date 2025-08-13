@@ -34,6 +34,7 @@ jobs:
         run: yarn install --immutable
 
       - name: Check for version bump
+        if: github.ref != 'refs/heads/main'
         run: |
           if [ ! -d ".yarn/versions" ] || [ -z "$(ls -A .yarn/versions 2>/dev/null)" ]; then
             echo "❌ Error: No deferred version found in .yarn/versions"
@@ -50,9 +51,34 @@ jobs:
       - name: Run style tests
         run: yarn test-style
 
-  publish:
+  check-version:
     needs: test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    outputs:
+      has_changes: ${{ steps.version_check.outputs.has_changes }}
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Check for version changes
+        id: version_check
+        run: |
+          if [ ! -d ".yarn/versions" ] || [ -z "$(ls -A .yarn/versions 2>/dev/null)" ]; then
+            echo "No version changes to apply"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Version changes found, proceeding with publish"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+  publish:
+    needs: [test, check-version]
+    if: needs.check-version.outputs.has_changes == 'true'
     runs-on: ubuntu-latest
 
     permissions:
