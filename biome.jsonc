@@ -2,7 +2,7 @@
   "extends": ["@nevir/toolchain/biome"],
   "overrides": [
     {
-      "includes": ["typescript/**/*.json"],
+      "includes": ["dprint/**/*.json", "typescript/**/*.json"],
       "json": {
         "parser": {
           "allowComments": true,
