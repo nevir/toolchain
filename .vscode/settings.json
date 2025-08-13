@@ -1,6 +1,9 @@
 {
   // Formatting
-  "editor.defaultFormatter": "biomejs.biome",
+  "dprint.experimentalLsp": true,
+  "dprint.path": "node_modules/dprint/dprint",
+
+  "editor.defaultFormatter": "dprint.dprint",
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "files.insertFinalNewline": true,
@@ -17,7 +20,7 @@
     "**/*.lock": true,
     "*config.json": true,
     "biome.json*": true,
-    "data.json": true,
+    "dprint.json": true,
     "main.js": true
   },
 
@@ -29,6 +32,7 @@
 
   // Language / Syntax Overrides
   "files.associations": {
+    "**/dprint/**/*.json": "jsonc",
     "**/typescript/**/*.json": "jsonc"
   },
 
@@ -38,9 +42,15 @@
       "url": "/node_modules/@biomejs/biome/configuration_schema.json"
     },
     {
+      "fileMatch": ["dprint/**/*.json"],
+      "url": "https://dprint.dev/schemas/v0.json",
+      "allowTrailingCommas": true
+    },
+    {
       "fileMatch": ["typescript/**/*.json"],
       "url": "https://json.schemastore.org/tsconfig",
       "allowTrailingCommas": true
     }
-  ]
+  ],
+
 }

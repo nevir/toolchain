@@ -19,6 +19,17 @@ yarn add --dev @nevir/toolchain
    { "extends": ["@nevir/toolchain/biome"] }
    ```
 
+## Dprint
+
+1. ```sh
+   yarn add --dev dprint
+   ```
+
+2. Create a `dprint.json` with:
+   ```jsonc
+   { "extends": "./node_modules/@nevir/toolchain/dprint/config.json" }
+   ```
+
 ## TypeScript
 
 1. ```sh

@@ -26,9 +26,9 @@
       }
     },
 
-    // MS' config files (tsconfig, VS Code) are JSONC with trailing commas.
+    // Various tools support JSON with comments and trailing commas.
     {
-      "includes": [".vscode/**", "**/*tsconfig*.json"],
+      "includes": [".vscode/**", "**/dprint.json", "**/*tsconfig*.json"],
       "json": {
         "parser": {
           "allowComments": true,

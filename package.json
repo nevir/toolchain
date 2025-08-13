@@ -11,21 +11,23 @@
     ":run-all": "npm-run-all2 --print-name",
     "fix": "yarn :run-all \"fix-*\"",
     "fix-diagnostics": "biome lint --write .",
-    "fix-style": "biome check --linter-enabled=false --write .",
+    "fix-style": "dprint fmt",
     "test": "yarn :run-all \"test-*\"",
     "test-diagnostics": "biome lint .",
-    "test-style": "biome check --linter-enabled=false ."
+    "test-style": "dprint check"
   },
   "packageManager": "yarn@4.9.2",
   "devDependencies": {
     "@biomejs/biome": "~2.1.4",
     "@nevir/toolchain": "workspace:*",
+    "dprint": "^0.50.1",
     "npm-run-all2": "^8.0.4",
     "tslib": "^2.8.1",
     "typescript": "^5.9.2"
   },
   "peerDependencies": {
     "@biomejs/biome": "~2.1.4",
+    "dprint": "^0.50.1",
     "tslib": "^2.8.1",
     "typescript": "^5.9.2"
   }

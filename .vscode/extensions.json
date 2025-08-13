@@ -1,3 +1,7 @@
 {
-  "recommendations": ["biomejs.biome", "jellydn.toggle-excluded-files"]
+  "recommendations": [
+    "biomejs.biome",
+    "jellydn.toggle-excluded-files",
+    "dprint.dprint"
+  ]
 }
