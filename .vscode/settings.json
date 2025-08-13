@@ -27,11 +27,20 @@
   "javascript.preferences.importModuleSpecifier": "relative",
   "typescript.preferences.importModuleSpecifier": "relative",
 
-  // JSON
+  // Language / Syntax Overrides
+  "files.associations": {
+    "**/typescript/**/*.json": "jsonc"
+  },
+
   "json.schemas": [
     {
       "fileMatch": ["{,**/}biome.jsonc", "biome/**/*.jsonc"],
       "url": "/node_modules/@biomejs/biome/configuration_schema.json"
+    },
+    {
+      "fileMatch": ["typescript/**/*.json"],
+      "url": "https://json.schemastore.org/tsconfig",
+      "allowTrailingCommas": true
     }
   ]
 }

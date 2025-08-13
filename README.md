@@ -10,7 +10,23 @@ yarn add --dev @nevir/toolchain
 
 ## Biome
 
-Create a `biome.jsonc` with:
-```jsonc
-{ "extends": ["@nevir/toolchain/biome"] }
-```
+1. ```sh
+   yarn add --dev @biomejs/biome
+   ```
+
+2. Create a `biome.jsonc` with:
+   ```jsonc
+   { "extends": ["@nevir/toolchain/biome"] }
+   ```
+
+## TypeScript
+
+1. ```sh
+   yarn add --dev typescript
+   yarn add tslib
+   ```
+
+2. Create a `tsconfig.jsonc` with:
+   ```jsonc
+   { "extends": "@nevir/toolchain" }
+   ```
