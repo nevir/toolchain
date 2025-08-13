@@ -8,36 +8,43 @@ Shared configuration for developer tools that I commonly use.
 yarn add --dev @nevir/toolchain
 ```
 
-## Biome
+**That's it!** The package will automatically create configuration files for supported tools during installation.
 
-1. ```sh
-   yarn add --dev @biomejs/biome
-   ```
+## What Gets Configured
 
-2. Create a `biome.jsonc` with:
-   ```jsonc
-   { "extends": ["@nevir/toolchain/biome"] }
-   ```
+The postinstall script automatically creates:
 
-## Dprint
+### Biome (`biome.jsonc`)
+```jsonc
+{ "extends": ["@nevir/toolchain/biome"] }
+```
 
-1. ```sh
-   yarn add --dev dprint
-   ```
+### Dprint (`dprint.json`) 
+```jsonc
+{ "extends": "./node_modules/@nevir/toolchain/dprint/config.json" }
+```
 
-2. Create a `dprint.json` with:
-   ```jsonc
-   { "extends": "./node_modules/@nevir/toolchain/dprint/config.json" }
-   ```
+### TypeScript (`tsconfig.json`)
+```jsonc
+{ "extends": "@nevir/toolchain/typescript/config.json" }
+```
 
-## TypeScript
+## Installing Tool Dependencies
 
-1. ```sh
-   yarn add --dev typescript
-   yarn add tslib
-   ```
+After installation, add the peer dependencies you need:
 
-2. Create a `tsconfig.jsonc` with:
-   ```jsonc
-   { "extends": "@nevir/toolchain" }
-   ```
+```sh
+# For Biome formatting and linting
+yarn add --dev @biomejs/biome
+
+# For Dprint formatting  
+yarn add --dev dprint
+
+# For TypeScript
+yarn add --dev typescript
+yarn add tslib
+```
+
+## Manual Setup (if needed)
+
+If you prefer manual setup or need to recreate configs, you can create the files shown above manually. The postinstall script will skip existing configuration files to avoid overwriting your customizations.
