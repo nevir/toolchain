@@ -56,7 +56,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
+      contents: write # Required for git operations (commit, tag, push)
       id-token: write # Required for npm provenance
 
     steps:
@@ -78,6 +78,25 @@ jobs:
 
       - name: Apply deferred version changes
         run: yarn version apply --all
+
+      - name: Configure git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Get package version
+        id: package_version
+        run: echo "version=v$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Commit version changes
+        run: |
+          git add .
+          git commit -m "Release ${{ steps.package_version.outputs.version }} [skip ci]"
+
+      - name: Create and push tag
+        run: |
+          git tag ${{ steps.package_version.outputs.version }}
+          git push origin main --tags
 
       - name: Publish to npm
         run: yarn npm publish --access public --provenance
